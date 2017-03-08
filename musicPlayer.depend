@@ -80,3 +80,21 @@
 1487231654 source:c:\users\anditya arifianto\documents\github\asd_task_4\player.cpp
 	"player.h"
 
+1488991218 source:c:\users\diko\documents\github\asd_task_4\main.cpp
+	"player.h"
+	<conio.h>
+
+1487318842 c:\users\diko\documents\github\asd_task_4\player.h
+	"list.h"
+
+1488976706 c:\users\diko\documents\github\asd_task_4\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1488990159 source:c:\users\diko\documents\github\asd_task_4\player.cpp
+	"player.h"
+
+1488991273 source:c:\users\diko\documents\github\asd_task_4\list.cpp
+	"list.h"
+

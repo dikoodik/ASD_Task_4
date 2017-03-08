@@ -10,7 +10,8 @@ void menu();
 void displayMenu();
 void runMenu(int menu);
 
-int main() {
+int main()
+{
 
     index_ID = 1;
     createList(L);
@@ -40,19 +41,23 @@ int main() {
 }
 
 
-void menu() {
+void menu()
+{
     /**
     * prosedur menu utama
     */
     int pil;
-    do {
+    do
+    {
         displayMenu();
         cin>>pil;
         runMenu(pil);
-    } while (pil!=0);
+    }
+    while (pil!=0);
 }
 
-void displayMenu() {
+void displayMenu()
+{
     /**
     * prosedur menampilkan pilihan menu
     */
@@ -75,7 +80,8 @@ void displayMenu() {
     cout<<"choose menu : ";
 }
 
-address inputMusic() {
+address inputMusic()
+{
     /**
     * PR : meminta input user untuk mengisi nama dan lokasi file
     * FS : mengembalikan alokasi elemen dengan data nama dan lokasi file
@@ -84,20 +90,23 @@ address inputMusic() {
     cin>>x.name;
     cout<<"input song location "<<endl<<"(write - for default location) :";
     cin>>x.location;
-    if(x.location=="-") {
+    if(x.location=="-")
+    {
         x.location="";
     }
     x.ID = index_ID++;
     return alokasi(x);
 }
 
-void runMenu(int menu) {
+void runMenu(int menu)
+{
     /**
     * prosedur memproses input pilihan menu dari user
     * TODO : modifikasi menu sehingga juga memproses menu yang disediakan:
     */
 
-    switch(menu) {
+    switch(menu)
+    {
     case 1:
         // insert first music
         P = inputMusic();
@@ -125,39 +134,61 @@ void runMenu(int menu) {
     case 5:
         // play last music
         //-------------your code here-------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+        P = last(L);
+        playMusic(P);
         //----------------------------------------
         getch();
         break;
     case 6:
         // search music by name
         //-------------your code here-------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        // cin x.name
-        // P = findElmByName(L, x);
+        cout<<"Masukkan nama file yang ingin dicari : "<<endl;
+        cin>>x.name;
+        cout<<endl;
+        P = findElmByName(L, x);
+        if(P!= nil)
+        {
+            cout<<info(P).name<<" Ditemukan!"<<endl;
+        }
+        else
+        {
+            cout<<"Nama tidak ditemukan!"<<endl;
+        }
+        cout<<endl;
         //----------------------------------------
         getch();
         break;
     case 7:
         // search music by ID
         //-------------your code here-------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        // cin x.id
-        // P = findElmByID(L, x)
+        cout<<"Masukkan ID yang Ingin Dicari: "<<endl;
+        cin>>x.ID;
+        cout<<endl;
+        P = findElmByID(L, x);
+        if(P!= nil)
+        {
+            cout<<info(P).ID<<" Ditemukan!"<<endl;
+        }
+        else
+        {
+            cout<<"ID tidak ditemukan!"<<endl;
+        }
+        cout<<endl;
         //----------------------------------------
         getch();
         break;
     case 8:
         // play current music
-        if(P!=NULL) {
+        if(P!=NULL)
+        {
             playMusic(P);
         }
         getch();
         break;
     case 9:
         // play next music
-        if(P!=NULL) {
+        if(P!=NULL)
+        {
             P = next(P);
             playMusic(P);
         }
@@ -166,8 +197,11 @@ void runMenu(int menu) {
     case 10:
         // play previous music
         //-------------your code here-------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+        if(P!=nil)
+        {
+            P = prev(P);
+            playMusic(P);
+        }
         //----------------------------------------
         getch();
         break;
@@ -182,26 +216,26 @@ void runMenu(int menu) {
     case 12:
         // sort list by ID
         //-------------your code here-------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        // sortListByID(L)
+        sortListByID(L);
         //----------------------------------------
         getch();
         break;
     case 13:
         // play repeat all music
         //-------------your code here-------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        // cin n
-        // playRepeat(L,n)
+
+        int n;
+        cin>>n;
+        playRepeat(L,n);
         //----------------------------------------
         getch();
         break;
     case 14:
         // delete music by ID
         //-------------your code here-------------
-        cout<<"UNDER MAIN TENIS"<<endl;
-        // cin x.id
-        // deleteMusicByID(L, x)
+
+        cin>>x.ID;
+        deleteMusicByID(L, x);
         //----------------------------------------
         getch();
         break;
